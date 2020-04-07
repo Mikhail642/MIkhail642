@@ -65,13 +65,12 @@ class MyFormState extends State {
         if(_formKey.currentState.validate()) {
           Color color = Colors.red;
           String text;
-
           if (_gender == null) text = 'Выберите свой пол';
           else if (_agreement == false) text = 'Необходимо принять условия соглашения';
-          else {text = 'Форма успешно заполнена'; color = Colors.green;}
-
+          else onPressed: null;
           Scaffold.of(context).showSnackBar(SnackBar(content: Text(text), backgroundColor: color,));
         }
+
       }, child: Text('Проверить'), color: Colors.blue, textColor: Colors.white,),
     ],)));
   }
@@ -81,7 +80,7 @@ void main() => runApp(
     new MaterialApp(
         debugShowCheckedModeBanner: false,
         home: new Scaffold(
-            appBar: new AppBar(title: new Text('Flutter.su - Форма ввода')),
+            appBar: new AppBar(title: new Text('Форма регистрации')),
             body: new MyForm()
         )
     )
